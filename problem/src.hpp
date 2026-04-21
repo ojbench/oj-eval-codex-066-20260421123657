@@ -130,6 +130,9 @@ class any_ptr {
  * @return any_ptr
  */
 template <class T> any_ptr make_any_ptr(const T &t) { return any_ptr(new T(t)); }
+// Default-construction overload
+template <class T>
+any_ptr make_any_ptr() { return any_ptr(new T()); }
 // Perfect-forwarding constructor for arbitrary types
 // Trait to detect T::value_type
 template <class, class = void>
